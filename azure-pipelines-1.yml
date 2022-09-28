@@ -18,7 +18,7 @@ variables:
   environmentName: 'tailspin-space-game-03'
 
   # Agent VM image name
-  vmImageName: 'demovm1'
+  vmImageName: 'ubuntu-latest'
 
 stages:
 - stage: Build
@@ -27,7 +27,7 @@ stages:
   - job: MavenPackageAndPublishArtifacts
     displayName: Maven Package and Publish Artifacts
     pool:
-      vmImage: $(demovm1)
+      name: $(AgentPool1)
 
     steps:
     - task: Maven@3
@@ -54,7 +54,7 @@ stages:
     displayName: Deploy Linux Web App
     environment: $(environmentName)
     pool:
-      vmImage: $(demovm1)
+      name: $(AgentPool1)
     strategy:
       runOnce:
         deploy:
