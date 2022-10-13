@@ -18,7 +18,7 @@ variables:
   environmentName: 'spacegame33'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  name: 'AgentPool'
 
 stages:
 - stage: Build
